@@ -34,6 +34,7 @@ all:
         ansible_connection: ansible.netcommon.netconf
     routers:
       children:
-      - arista
-      - cisco
-      - juniper
+        hosts:
+          - arista
+          - cisco
+          - juniper
