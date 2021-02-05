@@ -1,0 +1,9 @@
+---
+- name: retrieve inteface information
+  hosts: cisco
+  gather_facts: True
+
+  tasks:
+    - name: display version
+      debug:
+        msg: "{{ ansible_network_version }}"
