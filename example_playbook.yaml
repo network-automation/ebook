@@ -5,7 +5,7 @@
   tasks:
     - name: add VLAN configuration
       arista.eos.eos_vlans:
-        state: replaced
+        state: merged
         config:
           - name: desktops
             vlan_id: 20
