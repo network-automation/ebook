@@ -1,9 +1,16 @@
 ---
-- name: retrieve inteface information
+- name: use facts module
   hosts: cisco
-  gather_facts: True
+  gather_facts: false
 
   tasks:
+    - name: retrieve facts
+      cisco.ios.ios_facts:
+
     - name: display version
       debug:
-        msg: "{{ ansible_network_version }}"
+        msg: "{{ ansible_net_version }}"
+
+    - name: display serial number
+      debug:
+        msg: "{{ ansible_net_serialnum }}"
