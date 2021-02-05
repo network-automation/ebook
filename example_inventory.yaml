@@ -32,3 +32,8 @@ all:
       vars:
         ansible_network_os: junipernetworks.junos.junos
         ansible_connection: ansible.netcommon.netconf
+    routers:
+      children:
+          - arista
+          - cisco
+          - juniper
