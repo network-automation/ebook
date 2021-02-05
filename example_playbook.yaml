@@ -2,16 +2,17 @@
 - name: add vlans
   hosts: arista
   gather_facts: false
+  vars:
+    vlans:
+      - name: desktops
+        vlan_id: 20
+      - name: servers
+        vlan_id: 30
+      - name: DMZ
+        vlan_id: 50
+
   tasks:
     - name: add VLAN configuration
       arista.eos.eos_vlans:
         state: merged
-        config:
-          - name: desktops
-            vlan_id: 20
-          - name: servers
-            vlan_id: 30
-          - name: printers
-            vlan_id: 40
-          - name: DMZ
-            vlan_id: 50
+        config: "{{ vlans }}"
