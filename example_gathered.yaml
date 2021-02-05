@@ -1,0 +1,14 @@
+---
+- name: retrieve inteface information
+  hosts: cisco
+  gather_facts: false
+
+  tasks:
+    - name: use state gathered 
+      cisco.ios.ios_interfaces:
+        state: gathered
+      register: facts
+
+    - name: print out interfaces information
+      debug:
+        var: "{{ facts }}"
